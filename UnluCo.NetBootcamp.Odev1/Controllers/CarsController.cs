@@ -56,15 +56,15 @@ namespace UnluCo.NetBootcamp.Odev1.Controllers
             return BadRequest("Girilen Id sistemde kayıtlı");
         }
         [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromForm]Car car)
+        public IActionResult Update(int id, [FromForm]int brandId, [FromForm] string color, [FromForm] string modelName, [FromForm] int modelYear)
         {
             var _car = Cars.SingleOrDefault(x => x.CarId == id);
             if (_car is not null)
             {
-                _car.BrandId = car.BrandId;
-                _car.Color = car.Color;
-                _car.ModelName = car.ModelName;
-                _car.ModelYear = car.ModelYear;
+                _car.BrandId = brandId;
+                _car.Color = color;
+                _car.ModelName = modelName;
+                _car.ModelYear = modelYear;
                 return Ok(id + " Idli araç bilgileri güncellendi");
             }
             return BadRequest("Girilen Id sistemde kayıtlı değil");

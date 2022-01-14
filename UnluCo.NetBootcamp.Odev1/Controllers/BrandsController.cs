@@ -56,12 +56,12 @@ namespace UnluCo.NetBootcamp.Odev1.Controllers
             return BadRequest();
         }
         [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromQuery]Brand brand)
+        public IActionResult Update(int id, [FromQuery]string brandName)
         {
             var _brand = Brands.SingleOrDefault(x => x.BrandId == id);
             if (_brand is not null)
             {
-                _brand.BrandName = brand.BrandName;
+                _brand.BrandName = brandName;
                 return StatusCode(201);
             }
             return NoContent();
