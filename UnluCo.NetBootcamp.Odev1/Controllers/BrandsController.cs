@@ -12,7 +12,7 @@ namespace UnluCo.NetBootcamp.Odev1.Controllers
     [ApiController]
     public class BrandsController : ControllerBase
     {
-        public List<Brand> Brands = new List<Brand>()
+        private static List<Brand> Brands = new List<Brand>()
         {
             new Brand{BrandId=1,BrandName="BMW"},
             new Brand{BrandId=2,BrandName="Audi"},
@@ -36,7 +36,7 @@ namespace UnluCo.NetBootcamp.Odev1.Controllers
         public IActionResult GetListBrandNameAsc()
         {
             List<Brand> BrandNameList = Brands.OrderBy(x => x.BrandName).ToList();
-            return Ok(BrandNameList);
+            return Ok(Brands.OrderBy(x => x.BrandName).ToList());
         }
         [HttpGet("listBrandNameDesc")]
         public IActionResult GetListBrandNameDesc()

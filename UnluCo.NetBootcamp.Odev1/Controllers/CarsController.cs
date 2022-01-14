@@ -12,7 +12,7 @@ namespace UnluCo.NetBootcamp.Odev1.Controllers
     [ApiController]
     public class CarsController : ControllerBase
     {
-        List<Car> Cars = new List<Car>()
+        private static List<Car> Cars = new List<Car>()
         {
             new Car{CarId=1,BrandId=1,Color="Mavi",ModelName="5.2",ModelYear=2015,isActive=true},
             new Car{CarId=2,BrandId=2,Color="Kırmızı",ModelName="A3",ModelYear=2020,isActive=true},
